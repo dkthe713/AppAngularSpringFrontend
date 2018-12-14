@@ -1,3 +1,7 @@
-centrar.style {
+.centrar {
     text-align: center;
+}
+
+.clear {
+    padding: 15px;
 }

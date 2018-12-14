@@ -1,0 +1,19 @@
+.clear {
+    margin: 15px;
+}
+
+.requerido {
+    color: red;
+    font-weight: bolder;
+}
+
+.mainForm {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.btn-save {
+    cursor: pointer;
+    font-weight: bolder;
+    margin-left: 45%;
+}

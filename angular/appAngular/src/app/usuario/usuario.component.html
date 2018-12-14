@@ -2,24 +2,22 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Primer Nombre</th>
       <th scope="col">Segundo Nombre</th>
       <th scope="col">Primer Apellido</th>
       <th scope="col">Segundo Apellido</th>
       <th scope="col">Tel&eacute;fono</th>
       <th scope="col">Direcci&oacute;n</th>
-    </tr>
+    </tr> 
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Juan</td>
-      <td>Manuel</td>
-      <td>Castro</td>
-      <td>Fuel</td>
-      <td>0999999924</td>
-      <td>Quito</td>
+    <tr *ngFor="let u of usuarios">
+      <td>{{u.primerNombre}}</td>
+      <td>{{u.segundoNombre}}</td>
+      <td>{{u.primerApellido}}</td>
+      <td>{{u.segundoApellido}}</td>
+      <td>{{u.telefono}}</td>
+      <td>{{u.direccion}}</td>
     </tr>
   </tbody>
 </table>

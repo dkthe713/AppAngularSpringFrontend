@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UsuarioService } from './usuario.service';
 import { Usuario } from '../modelo/usuario.modelo';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -14,7 +15,8 @@ export class UsuarioComponent implements OnInit {
   private usuarios: Array<Usuario>;
 
   constructor(
-    private usuarioServicio: UsuarioService
+    private usuarioServicio: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -28,5 +30,24 @@ export class UsuarioComponent implements OnInit {
       this.usuarios = result;
       console.log(this.usuarios);
     });
+  }
+
+  /**
+   * Metodo para editar usuarios
+   */
+  public editarUsuario(usuario: Usuario): void {
+    sessionStorage.setItem('usuario', JSON.stringify(usuario));
+    this.router.navigate(['/guardarUsuarioComponent']);
+  }
+
+  /**
+   * Metodo para eliminar usuarios
+   */
+  public eliminarUsuario(usuario: Usuario): void {
+    if (confirm('¿Está seguro de eliminar el registro?')) {
+      this.usuarioServicio.eliminarUsuario(usuario);
+    } else {
+      console.log('Eliminación cancelada');
+    }
   }
 }

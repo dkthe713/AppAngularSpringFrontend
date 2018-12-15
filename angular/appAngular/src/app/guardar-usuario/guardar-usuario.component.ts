@@ -18,7 +18,12 @@ export class GuardarUsuarioComponent implements OnInit {
 
   constructor(private guardarUsuarioServicio: GuardarUsuarioService,
     private router: Router) {
-    this.usuario = new Usuario;
+    if (sessionStorage.getItem('usuario')) {
+      this.usuario = JSON.parse(sessionStorage.getItem('usuario'));
+      sessionStorage.clear();
+    } else {
+      this.usuario = new Usuario;
+    }
   }
 
   ngOnInit() {
@@ -38,5 +43,6 @@ export class GuardarUsuarioComponent implements OnInit {
     } else {
       this.mensaje = "Debe ingresar los campos obligatorios *";
     }
+    sessionStorage.clear();
   }
 }
